@@ -13,8 +13,12 @@ button {
 
   body {
     @apply bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen;
-    font-family: "Poppins", sans-serif;
+  
   }
+}
+
+h1, h3{
+  font-family: "Poppins", sans-serif;
 }
 
 .product-grid {
