@@ -8,11 +8,13 @@ interface StoreState {
     error: string | null;
     searchQuery: string;
     selectProduct: Product | null;
+    isOpenCart: boolean
 
 // métados de manipulação dos estados
 fetchProducts: () => Promise<void>;
 setSearchQuery: (query: string) => void;
 setSelectProduct: (product: Product | null) => void
+setIsCartOpen: (isOpen: boolean) => void
 }
 
 
@@ -24,6 +26,7 @@ export const useStore = create<StoreState>((set,get) => ({
     error: null,
     searchQuery: ' ',
     selectProduct: null,
+    isOpenCart: false,
 
 
     fetchProducts: async () => {
@@ -41,7 +44,8 @@ export const useStore = create<StoreState>((set,get) => ({
     },
 
     setSearchQuery: (query) => set({searchQuery: query}),
-    setSelectProduct: (product) => set({selectProduct: product})
+    setSelectProduct: (product) => set({selectProduct: product}),
+    setIsCartOpen: (isOpen) => set({isOpenCart: isOpen})
 
 
 }));

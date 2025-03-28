@@ -3,9 +3,10 @@ import { Header } from "./components/Header";
 import { ProductCart } from "./components/ProductCart";
 import { useStore } from "./store/store";
 import { ProductModal } from "./components/ProductModal";
+import { CartModal } from "./components/CartModal";
 
 function App() {
-  const { products, loading, error, searchQuery, setSearchQuery, fetchProducts, selectProduct, setSelectProduct } = useStore();
+  const { products, loading, error, searchQuery, setSearchQuery, fetchProducts, selectProduct, setSelectProduct, isOpenCart, setIsCartOpen } = useStore();
 
   useEffect(() => {
     fetchProducts();
@@ -33,6 +34,7 @@ const filteredProducts = products.filter((product) =>
       <Header
       searchQuery={searchQuery} 
       setSearchQuery={setSearchQuery}
+      onCartClick={() => setIsCartOpen(true)}
       />
       <main className="container mx-auto px-4 py-9">
         {loading ? (
@@ -54,6 +56,10 @@ const filteredProducts = products.filter((product) =>
       <ProductModal
       product={selectProduct}
       onClose={() => setSelectProduct(null)}
+      />
+      <CartModal 
+        isOpen={isOpenCart}
+        onClose={() => setIsCartOpen(false)}
       />
     </div>
   );

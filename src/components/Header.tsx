@@ -3,10 +3,11 @@ import { Search, ShoppingCart, Store } from "lucide-react";
 interface HeaderProps {
     searchQuery: string;
     setSearchQuery: (query: string) => void;
+    onCartClick: () => void;
 }
 
 
-export function Header({ searchQuery, setSearchQuery }: HeaderProps) {
+export function Header({ searchQuery, setSearchQuery, onCartClick }: HeaderProps) {
     return (
         <header className="sticky inset-0 top-0 z-50 bg-white/80 backdrop-blur shadow-md">
             <section className="container mx-auto px-6 py-4">
@@ -29,7 +30,7 @@ export function Header({ searchQuery, setSearchQuery }: HeaderProps) {
                         </div>
                     </div>
                     {/* seção carrinho */}
-                    <button className="relative p-2 text-gray-600 hover:text-blue-600 transition-colors">
+                    <button className="relative p-2 text-gray-600 hover:text-blue-600 transition-colors" onClick={onCartClick}>
                         <ShoppingCart className="w-6 h-6" />
                     </button>
                 </div>
