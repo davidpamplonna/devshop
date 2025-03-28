@@ -2,9 +2,10 @@ import { useEffect } from "react";
 import { Header } from "./components/Header";
 import { ProductCart } from "./components/ProductCart";
 import { useStore } from "./store/store";
+import { ProductModal } from "./components/ProductModal";
 
 function App() {
-  const { products, loading, error, searchQuery, setSearchQuery, fetchProducts } = useStore();
+  const { products, loading, error, searchQuery, setSearchQuery, fetchProducts, selectProduct, setSelectProduct } = useStore();
 
   useEffect(() => {
     fetchProducts();
@@ -41,11 +42,19 @@ const filteredProducts = products.filter((product) =>
         ) : (
           <div className="product-grid">
             {filteredProducts.map((product) => (
-              <ProductCart key={product.id} product={product} />
+              <ProductCart
+               key={product.id} 
+               product={product} 
+               onProductClick={setSelectProduct}
+               />
             ))}
           </div>
         )}
       </main>
+      <ProductModal
+      product={selectProduct}
+      onClose={() => setSelectProduct(null)}
+      />
     </div>
   );
 }

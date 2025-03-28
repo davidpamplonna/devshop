@@ -7,10 +7,12 @@ interface StoreState {
     loading: boolean;
     error: string | null;
     searchQuery: string;
+    selectProduct: Product | null;
 
 // métados de manipulação dos estados
 fetchProducts: () => Promise<void>;
 setSearchQuery: (query: string) => void;
+setSelectProduct: (product: Product | null) => void
 }
 
 
@@ -21,6 +23,7 @@ export const useStore = create<StoreState>((set,get) => ({
     loading: true,
     error: null,
     searchQuery: ' ',
+    selectProduct: null,
 
 
     fetchProducts: async () => {
@@ -38,7 +41,7 @@ export const useStore = create<StoreState>((set,get) => ({
     },
 
     setSearchQuery: (query) => set({searchQuery: query}),
-
+    setSelectProduct: (product) => set({selectProduct: product})
 
 
 }));

@@ -4,9 +4,12 @@ import { Product } from "../type";
 
 interface ProductCartProps {
   product: Product;
+  onProductClick: (product: Product) => void;
 }
 
-export function ProductCart({ product }: ProductCartProps) {
+export function ProductCart({ product, onProductClick }: ProductCartProps) {
+
+
   // função para renderizar as estrelas
   const renderStar = () => {
     const Stars = [];
@@ -28,6 +31,7 @@ export function ProductCart({ product }: ProductCartProps) {
     <section className="bg-white px-3 py-3 rounded-2xl overflow-hidden card-hover">
       <div className="aspect-square overflow-hidden cursor-pointer relative-group">
         <img
+          onClick={() => onProductClick(product)}
           className="w-full h-full object-contain py-5"
           src={product.image}
           alt={product.title}
