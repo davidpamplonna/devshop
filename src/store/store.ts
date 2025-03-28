@@ -6,10 +6,11 @@ interface StoreState {
     products: Product[];
     loading: boolean;
     error: string | null;
+    searchQuery: string;
 
 // métados de manipulação dos estados
 fetchProducts: () => Promise<void>;
-
+setSearchQuery: (query: string) => void;
 }
 
 
@@ -19,7 +20,7 @@ export const useStore = create<StoreState>((set,get) => ({
     products: [],
     loading: true,
     error: null,
-
+    searchQuery: ' ',
 
 
     fetchProducts: async () => {
@@ -35,6 +36,8 @@ export const useStore = create<StoreState>((set,get) => ({
         })
        }
     },
+
+    setSearchQuery: (query) => set({searchQuery: query}),
 
 
 

@@ -1,7 +1,12 @@
 import { Search, ShoppingCart, Store } from "lucide-react";
 
+interface HeaderProps {
+    searchQuery: string;
+    setSearchQuery: (query: string) => void;
+}
 
-export function Header() {
+
+export function Header({ searchQuery, setSearchQuery }: HeaderProps) {
     return (
         <header className="sticky inset-0 top-0 z-50 bg-white/80 backdrop-blur shadow-md">
             <section className="container mx-auto px-6 py-4">
@@ -16,6 +21,8 @@ export function Header() {
                         <div className="relative">
                             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
                             <input
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            value={searchQuery}
                             className="w-full py-2 pl-10 pr-4 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-600 transition-all duration-300 text-md"
                             type="text" 
                             placeholder="Buscar produtos..." />

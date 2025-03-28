@@ -4,7 +4,7 @@ import { ProductCart } from "./components/ProductCart";
 import { useStore } from "./store/store";
 
 function App() {
-  const { products, loading, error, fetchProducts } = useStore();
+  const { products, loading, error, searchQuery, setSearchQuery, fetchProducts } = useStore();
 
   useEffect(() => {
     fetchProducts();
@@ -21,9 +21,18 @@ function App() {
     );
   }
 
+  // funcao para pesquisar
+const filteredProducts = products.filter((product) =>
+  product.title.toLowerCase().includes(searchQuery.toLowerCase())
+
+)
+
   return (
     <div>
-      <Header />
+      <Header
+      searchQuery={searchQuery} 
+      setSearchQuery={setSearchQuery}
+      />
       <main className="container mx-auto px-4 py-9">
         {loading ? (
           <div className="flex items-center justify-center h-64 translate-y-30">
@@ -31,7 +40,7 @@ function App() {
           </div>
         ) : (
           <div className="product-grid">
-            {products.map((product) => (
+            {filteredProducts.map((product) => (
               <ProductCart key={product.id} product={product} />
             ))}
           </div>
