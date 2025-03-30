@@ -1,5 +1,7 @@
-import { Facebook, Instagram, Mail, Phone } from "lucide-react";
+import {   Mail, Phone } from "lucide-react";
+import { FaInstagram } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
+import { TbBrandFacebook } from "react-icons/tb";
 
 
 export function Footer() {
@@ -33,10 +35,12 @@ export function Footer() {
                     <h3 className="text-lg font-semibold mb-4">Redes Sociais</h3>
                     <div className="flex space-x-4">
                         <a href="https://facebook.com/" className="text-gray-400 hover:text-white transition-colors duration-500">
-                            <Facebook className="w-5 h-5" />
+                         <TbBrandFacebook  className="w-5 h-5"/>
+
                         </a>
                         <a href="https://www.instagram.com/" className="text-gray-400 hover:text-white transition-colors duration-500">
-                            <Instagram className="w-5 h-5" />
+                            <FaInstagram className="w-5 h-5" />
+
                         </a>
                         <a href="https://x.com/" className="text-gray-400 hover:text-white transition-colors duration-500">
                         <RiTwitterXFill className="w-5 h-5" />
