@@ -15,13 +15,13 @@ export function Header({ searchQuery, setSearchQuery, onCartClick, cartItemsCoun
                 <div className="flex items-center justify-between">
                     {/* <Logo /> */}
                     <div className="flex space-x-2 ">
-                        <Store className="text-blue-600 w-7 h-7" />
+                        <Store className="text-blue-600 w-7 h-7" aria-label="Logo"/>
                         <h1 className=" text-2xl sm:text-3xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">DevShop</h1>
                     </div>
                     {/* seção search */}
                     <div className="flex-1 relative mx-8">
                         <div className="relative">
-                            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" aria-label="Buscar" />
                             <input
                             onChange={(e) => setSearchQuery(e.target.value)}
                             value={searchQuery}
@@ -32,7 +32,7 @@ export function Header({ searchQuery, setSearchQuery, onCartClick, cartItemsCoun
                     </div>
                     {/* seção carrinho */}
                     <button className="relative p-2 text-gray-600 hover:text-blue-600 transition-colors" onClick={onCartClick}>
-                        <ShoppingCart className="w-6 h-6" />
+                        <ShoppingCart className="w-6 h-6" aria-label="Carrinho" />
                         {cartItemsCount > 0 && (
                             <span className="absolute top-0 right-0 inline-flex items-center justify-center px-[5px] py-[2px] text-xs font-bold leading-none text-white bg-red-500 rounded-full animate-bounce">
                             {cartItemsCount}

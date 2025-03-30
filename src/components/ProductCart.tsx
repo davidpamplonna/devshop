@@ -21,9 +21,9 @@ export function ProductCart({ product, onProductClick, IsIncart, onddToProduct, 
     for (let i = 1; i <= 5; i++) {
       Stars.push(
         i <= rating ? (
-          <FaStar key={i} className="text-yellow-500" />
+          <FaStar key={i} className="text-yellow-500" aria-label="Estrela"/>
         ) : (
-          <FaRegStar className="text-gray-300" />
+          <FaRegStar className="text-gray-300" aria-label="Estrela Vazia"/>
         )
       );
     }
@@ -83,12 +83,12 @@ export function ProductCart({ product, onProductClick, IsIncart, onddToProduct, 
 
          {IsIncart ? (
           <>
-          <Trash2 className="w-5 h-5" />
+          <Trash2 className="w-5 h-5" aria-label="Remover"/>
           <span className="sm:hidden md:inline">Remover do carrinho</span>
           </>
          ) :(
           <>
-           <ShoppingCart className="w-5 h-5" />
+           <ShoppingCart className="w-5 h-5" aria-label="Adicionar"/>
            <span>Adicionar ao carrinho</span>
           </>
          

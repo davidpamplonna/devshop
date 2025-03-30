@@ -22,7 +22,7 @@ export function ProductModal({ product, onClose, onAddToCart }: ProductModalProp
             <button className="text-gray-500 hover:text-gray-700 transition-colors"
             onClick={onClose}
             >
-              <X className="w-6 h-6" />
+              <X className="w-6 h-6" aria-label="Fechar"/>
             </button>
           </div>
           {/* imagem do produto */}
@@ -42,7 +42,7 @@ export function ProductModal({ product, onClose, onAddToCart }: ProductModalProp
                 <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
                   {product.category}
                 </span>
-                <FaStar className="text-yellow-500" />
+                <FaStar className="text-yellow-500" aria-label="Estrela"/>
                 {product.rating?.rate !== undefined && (
                   <span className="text-sm font-medium">
                     {product.rating.rate.toFixed(1)}
@@ -62,7 +62,7 @@ export function ProductModal({ product, onClose, onAddToCart }: ProductModalProp
               onClick={() => {onAddToCart(product); onClose()}}
                 
               >
-                <ShoppingCart className="w-5 h-5" />
+                <ShoppingCart className="w-5 h-5" aria-label="Carrinho"/>
                 Adicionar ao carrinho
               </button>
             </div>

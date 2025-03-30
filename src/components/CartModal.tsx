@@ -54,14 +54,14 @@ const handleClose = () =>{
                 Seu Carrinho
               </h2>
               <button className="text-gray-500 hover:text-gray-700 transition-colors" onClick={handleClose}>
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6" aria-label="Fechar"/>
               </button>
             </div>
           </div>
 
           {isCheckoutComplete ? (
             <div className="text-center py-12">
-              <CircleCheckBig className="h-16 w-16 mx-auto mb-4 text-green-500" />
+              <CircleCheckBig className="h-16 w-16 mx-auto mb-4 text-green-500" aria-label="Check"/>
               <p className="text-gray-600 font-medium text-xl">Obrigado pela sua comprar!</p>
               <p className="text-gray-400 mt-2">Seu pedido foi processado com sucesso</p>
               <button 
@@ -73,7 +73,7 @@ const handleClose = () =>{
 
           ) : items.length === 0 ?(
             <div className="text-center py-12">
-            <ShoppingBag className="h-16 w-16 mx-auto mb-4 text-gray-400" />
+            <ShoppingBag className="h-16 w-16 mx-auto mb-4 text-gray-400" aria-label="Carrinho" />
             <p className="text-gray-600 font-medium">Seu Carrinho está vazio</p>
             <p className="text-gray-400 mt-2">
               Adicione alguns produtos para começar
@@ -98,20 +98,20 @@ const handleClose = () =>{
                       item.id,
                       Math.max(0, item.quantity - 1)
                     )}>
-                      <Minus className="h-4 w-4" />
+                      <Minus className="h-4 w-4" aria-label="Menos" />
                     </button>
                     <span>{item.quantity}</span>
                     <button
                     className="p-1 text-gray-500 hover:text-gray-700 transition-colors"
                     onClick={() => onUpdateCartItemQuantity(item.id, item.quantity + 1)}
                     >
-                     <Plus className="h-4 w-4" />
+                     <Plus className="h-4 w-4" aria-label="Mais"/>
                     </button>
                     <button
                     className="ml-2 p-1 text-red-500 hover:text-red-700 transition-colors"
                     onClick={() => onRemoveFromCart(item.id)}
                     >
-                     <Trash2 className="h-4 w-4" />
+                     <Trash2 className="h-4 w-4" aria-label="Remover"/>
                     </button>
                   </div>
                   </div>
