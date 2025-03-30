@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Mail, Phone, Twitter } from "lucide-react";
+import { Facebook, Instagram, Mail, Phone } from "lucide-react";
 import { RiTwitterXFill } from "react-icons/ri";
 
 
