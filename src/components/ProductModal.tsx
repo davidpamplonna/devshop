@@ -3,11 +3,12 @@ import { Product } from "../type";
 import { FaStar } from "react-icons/fa";
 
 interface ProductModalProps {
-  product: Product;
+  product: Product | null;
   onClose: () => void;
+  onAddToCart: (product: Product) => void;
 }
 
-export function ProductModal({ product, onClose }: ProductModalProps) {
+export function ProductModal({ product, onClose, onAddToCart }: ProductModalProps) {
   if (!product) return null;
 
   return (
@@ -57,8 +58,11 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
                   currency: "BRL",
                 })}
               </div>
-              <button className="w-full bg-blue-600 rounded-xl text-white py-4 flex items-center justify-center gap-4 hover:bg-blue-700 transition-colors buttom-primary mt-4">
-                <ShoppingCart />
+              <button className="w-full bg-blue-600 rounded-xl text-white py-4 flex items-center justify-center gap-4 hover:bg-blue-700 transition-colors buttom-primary mt-4"
+              onClick={() => {onAddToCart(product); onClose()}}
+                
+              >
+                <ShoppingCart className="w-5 h-5" />
                 Adicionar ao carrinho
               </button>
             </div>

@@ -1,13 +1,16 @@
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Trash2 } from "lucide-react";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { Product } from "../type";
 
 interface ProductCartProps {
   product: Product;
   onProductClick: (product: Product) => void;
+  IsIncart: boolean;
+  onddToProduct: (product: Product) => void;
+  OnRemoveFromCart: (product: number) => void;
 }
 
-export function ProductCart({ product, onProductClick }: ProductCartProps) {
+export function ProductCart({ product, onProductClick, IsIncart, onddToProduct, OnRemoveFromCart }: ProductCartProps) {
 
 
   // função para renderizar as estrelas
@@ -26,6 +29,19 @@ export function ProductCart({ product, onProductClick }: ProductCartProps) {
     }
     return Stars;
   };
+
+
+  // função para adicionar ou remover do carrinho
+
+  const handleCartClick = (e: React.MouseEvent) => {
+      e.stopPropagation(); 
+      if(IsIncart){
+        OnRemoveFromCart (product.id);
+      } else {
+        onddToProduct(product);
+      }
+  }
+
 
   return (
     <section className="bg-white px-3 py-3 rounded-2xl overflow-hidden card-hover">
@@ -56,9 +72,28 @@ export function ProductCart({ product, onProductClick }: ProductCartProps) {
         <p className="line-clamp-2 text-gray-600 text-sm mb-4">
           {product.description}
         </p>
-        <button className="bg-blue-600 w-full text-bold text-white hover:bg-blue-700 transition-all duration-400 py-4 rounded-xl flex items-center justify-center gap-3">
-          <ShoppingCart className="w-5 h-5" />
-          Adicionar ao Carrinho
+        <button 
+        onClick={handleCartClick}
+        className={`bg-blue-600 w-full text-bold text-white hover:bg-blue-700 transition-all duration-400 py-4 rounded-xl flex items-center justify-center gap-3
+        ${IsIncart ?
+          'bg-red-500 hover:bg-red-600 text-white'
+          : 'bg-blue-600 hover:bg-blue-700 text-white'
+        }
+        `}>
+
+         {IsIncart ? (
+          <>
+          <Trash2 className="w-5 h-5" />
+          <span className="sm:hidden md:inline">Remover do carrinho</span>
+          </>
+         ) :(
+          <>
+           <ShoppingCart className="w-5 h-5" />
+           <span>Adicionar ao carrinho</span>
+          </>
+         
+         )}
+         
         </button>
       </div>
     </section>
