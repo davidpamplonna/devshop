@@ -1,54 +1,56 @@
-# React + TypeScript + Vite
+## DevShop ##
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+DevShop é uma aplicação web para e-commerce, desenvolvida com tecnologias modernas para proporcionar uma experiência otimizada para os usuários.
 
-Currently, two official plugins are available:
+🔗 Acesse o projeto: <a href="https://devshop-nine.vercel.app/">DevShop Online</a>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+📌 Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🔹 Catálogo de produtos dinâmico
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+🔹 Sistema de carrinho de compras
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+🔹 Processamento de pagamentos
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+🔹 Autenticação de usuários
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+🔹 Layout responsivo
+
+🛠️ Tecnologias utilizadas
+  
+Frontend: React.js, Next.js
+
+Backend: Node.js, Express.js
+
+Banco de Dados: MongoDB / Firebase
+
+Estilização: Tailwind CSS
+
+Hospedagem: Vercel
+
+🚀 Como executar o projeto
+1️⃣ Clone este repositório
+bash
+Copiar
+Editar
+git clone https://github.com/seu-usuario/devshop.git
+2️⃣ Acesse a pasta do projeto
+bash
+Copiar
+Editar
+cd devshop
+3️⃣ Instale as dependências
+bash
+Copiar
+Editar
+npm install
+# ou
+yarn install
+4️⃣ Execute o servidor de desenvolvimento
+bash
+Copiar
+Editar
+npm run dev
+# ou
+yarn dev
